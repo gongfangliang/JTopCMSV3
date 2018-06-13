@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<butterfly-config>
+	<system-set>
+		<debug>false</debug>
+		
+		<resource path="/config/conf">auctionText</resource>
+		
+		<rt-init-behavior>
+			<target-class>cn.com.mjsoft.cms.behavior.JtRuntime</target-class>		
+		</rt-init-behavior>
+
+		<init-behavior>
+			<target-class>cn.com.mjsoft.cms.behavior.InitSiteGroupInfoBehavior</target-class>
+
+			<target-class>cn.com.mjsoft.cms.behavior.ResumeScheduleJobBehavior</target-class>
+
+			<target-class>cn.com.mjsoft.cms.behavior.QueryDataInfoBehavior</target-class>
+ 	
+			<target-class>cn.com.mjsoft.cms.behavior.InitRSABehavior</target-class>
+			
+		 	
+		</init-behavior>
+
+		<access-behavior>
+			<target-class>cn.com.mjsoft.cms.stat.behavior.DangerAcceccTraceBehavior</target-class>
+		</access-behavior>
+		
+		<token-sec-behavior>
+			<target-class>cn.com.mjsoft.cms.member.behavior.SecTokenModeCheckBehavior</target-class>
+		</token-sec-behavior>
+
+	</system-set>
+
+	<global-results>
+		<result name="login">/core/login.jsp</result>
+		<result name="exception">/core/common/error.jsp</result>
+		<result name="tokenError" type="flow-chain" module="appbiz">appTokenError</result>		
+	</global-results>
+
+	<global-exception-handlers>
+		<exception-handler exception="cn.ming.sys.framework.exception.FrameworkException" result-link="exception" />
+		<exception-handler exception="com.ming.butterfly.service.AuctionException" result-link="exception" />
+		<exception-handler exception="cn.com.mjsoft.framework.jdbc.exception.DataAccessException" result-link="exception" />
+	</global-exception-handlers>
+
+	<interceptors> </interceptors>
+
+	<global-interceptor>
+	</global-interceptor>
+
+	<flow-mapping>
+		 
+		 
+	
+
+	</flow-mapping>
+
+
+</butterfly-config>
